@@ -1,0 +1,43 @@
+* {
+  /* global reset; usually of margin & padding */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(220, 188, 137);
+  font-family: Arial, Helvetica, sans-serif, "Times New Roman", Times, serif;
+  font-size: 20;
+}
+img {
+  height: 400px;
+}
+p {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+#main-title {
+  color: rgb(27, 14, 14);
+  font: Arial;
+  text-align: center;
+}
+#input-window {
+  background-color: white;
+  width: 800px;
+  border: 3px solid;
+  text-align: center;
+  margin: 10px;
+}
+#intro {
+  color: rgb(191, 38, 38);
+  font-size: large;
+  text-align: center;
+  padding: 5px;
+}
+.sub-title {
+  text-align: center;
+  padding: 5px;
+}
+
+/* paddings: margin of a box */
+/* margin: margin of the web page */
