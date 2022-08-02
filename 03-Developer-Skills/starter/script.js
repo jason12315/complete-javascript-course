@@ -1,4 +1,5 @@
 // Remember, we're gonna use strict mode in all scripts now!
+<<<<<<< HEAD
 "use strict";
 
 // const temperatures = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
@@ -54,3 +55,7 @@ const printForecast = (test) => {
 };
 printForecast(test1);
 printForecast(test2);
+=======
+'use strict';
+
+>>>>>>> 8201b01f2fcd274fb276c1c8e11e55847c6d451e
