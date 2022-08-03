@@ -58,6 +58,7 @@ p {
 .hidden {
   display: none;
 }
+/* CSS properties should be aggregated in names for easier memory & clearer codes */
 
 .modal {
   position: absolute;

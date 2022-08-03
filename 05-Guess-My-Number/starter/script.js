@@ -1,38 +1,37 @@
 'use strict';
+function displayMessage(str) {
+  document.querySelector('.message').textContent = str;
+}
+
 function guessNumber() {
   if (endFlag) {
     return false;
   }
-
   const guess = Number(document.querySelector('.guess').value);
   //input type帮我们规避了输入非数字的可能性
   console.log(guess);
   if (guess <= 0 || guess > 20)
     //'' will be converted to zero
-    document.querySelector('.message').textContent = '⛔ Not a valid number';
+    // boundary check
+    displayMessage('⛔ Not a valid number');
   else {
     if (guess === theNum) {
-      document.querySelector('.message').innerHTML =
-        '🎉 Correct answer!<br \\>Press Ctrl + R to restart';
+      //correct answer
+      displayMessage('🎉 Correct answer!');
       document.querySelector('body').style.backgroundColor = '#60b347';
       document.querySelector('.number').style.width = '30rem';
       document.querySelector('.number').textContent = theNum;
-      // css properties are always in string type
+      // css properties must be in string
       if (highscore < score) highscore = score;
       document.querySelector('.highscore').textContent = highscore;
       endFlag = true;
     } else {
-      if (guess > theNum) {
-        document.querySelector('.message').textContent = '🔽 Too high!!';
-      } else {
-        document.querySelector('.message').textContent = '🔼 Too low!!';
-      }
       score--;
+      displayMessage(guess > theNum ? '🔽 Too high!!' : '🔼 Too low!!');
       document.querySelector('.score').textContent = score;
 
       if (score === 0) {
-        document.querySelector('.message').innerHTML =
-          '😭 You lose the game!!<br \\>Press Ctrl + R to restart';
+        displayMessage('😭 You lost the game!!');
         endFlag = true;
       }
     }
@@ -45,7 +44,7 @@ function restartGame() {
   theNum = Math.floor(Math.random() * 20) + 1;
   score = 20;
   endFlag = false;
-  document.querySelector('.message').textContent = 'Start guessing...';
+  displayMessage('Start guessing...');
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.score').textContent = score;
   document.querySelector('.number').style.width = '15rem';
@@ -63,6 +62,7 @@ document.querySelector('.check').addEventListener('click', guessNumber);
 
 document.querySelector('.again').addEventListener('click', restartGame);
 
+// keyboard control: check, or reset the game
 document.onkeydown = function (event) {
   if (event.key == 'Enter') {
     guessNumber();
