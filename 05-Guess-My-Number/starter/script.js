@@ -64,7 +64,7 @@ document.querySelector('.again').addEventListener('click', restartGame);
 
 // keyboard control: check, or reset the game
 document.onkeydown = function (event) {
-  if (event.key == 'Enter') {
+  if (event.key === 'Enter') {
     guessNumber();
   } else if (event.ctrlKey && event.key === 'r') {
     event.preventDefault();
